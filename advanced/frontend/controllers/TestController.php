@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\User;
 use yii\web\Controller;
 
 /**
@@ -14,6 +15,24 @@ class TestController extends Controller {
      * 入口文件
      */
     public function actionIndex() {
-        echo 111;die;
+        
+        echo "我是入口文件";
+    }
+    
+    //访问的地址：http://localhost/yii2/advanced/frontend/web/test/save-user
+    public function actionSaveUser() {
+        
+        echo 1111111;
+        die;
+        $model = new User();
+        $model->username = 'zly';
+        $model->salt = '12345';
+        $password = '123456';
+        $model->password = md5($password . $model->salt);
+        $model->phone = '18301090553';
+        $model->email = 'zhangliyan0@hotmail.com';
+        $result = $model->insert();
+        print_r($result);
+        
     }
 }

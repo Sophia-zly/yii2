@@ -10,12 +10,13 @@ return [
     'id'                  => 'app-frontend',
     'basePath'            => dirname(__DIR__),
     'bootstrap'           => ['log'],
+    'defaultRoute'        => 'Test',
     'controllerNamespace' => 'frontend\controllers',
-    //'homeUrl'             => '/',//域名配置
+//    'homeUrl'             => '/',//域名配置
     'components'          => [
         'request'      => [
             'csrfParam' => '_csrf-frontend',
-            //'baseUrl'   => '',//域名配置
+//            'baseUrl'   => '',//域名配置
         ],
         'user'         => [
             'identityClass'   => 'common\models\User',
@@ -47,11 +48,13 @@ return [
             'charset'  => 'utf8',
         ],
         'urlManager'   => array(
-            'showScriptName'  => FALSE,
-            'enablePrettyUrl' => TRUE,
-            'rules'           => array(
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-            ),
+            'showScriptName'      => FALSE,//隐藏index.php
+            'enableStrictParsing' => FALSE,
+            'enablePrettyUrl'     => TRUE,
+//            'rules'               => array(
+//                "<controller:\w+>/<action:\w+>/<id:\d+>" => "<controller>/<action>",
+//                "<controller:\w+>/<action:\w+>"          => "<controller>/<action>",
+//            ),
         ),
     ],
     'params'              => $params,
